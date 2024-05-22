@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
   fullName: String,
@@ -8,11 +9,24 @@ const userSchema = new mongoose.Schema({
   tel: String,
   role: { 
     type: String, 
-    //enum permet une extensibilité future si d'autres rôles sont ajoutés.
-    enum: ['user', 'admin'], // Les valeurs autorisées sont 'user' et 'admin'
-    default: 'user' // Valeur par défaut
+    enum: ['user', 'admin'],
+    default: 'user'
   }
 });
 
-const userModel = mongoose.model("user", userSchema);
+// Avant de sauvegarder l'utilisateur dans la base de données, hachez son mot de passe
+userSchema.pre('save', async function(next) {
+  if (!this.isModified('password')) {
+    return next();
+  }
+  try {
+    const hashedPassword = await bcrypt.hash(this.password, 10); // Le deuxième paramètre est le coût du hachage
+    this.password = hashedPassword;
+    next();
+  } catch (error) {
+    return next(error);
+  }
+});
+
+const userModel = mongoose.model("users", userSchema);
 module.exports = userModel;

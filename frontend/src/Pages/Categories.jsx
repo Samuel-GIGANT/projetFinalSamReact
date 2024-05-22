@@ -4,7 +4,10 @@ import './categories.css';
 
 const Categories = () => {
   return (
-    <div>
+    <>
+    <div className="categorie">
+      <h2>CATEGORIES</h2>
+    </div>
       <aside className='sidebar'>
         <div className="sidebar_title">
           <h2>Categories</h2>
@@ -15,7 +18,8 @@ const Categories = () => {
           </ul>
         </div>
       </aside>
-    </div>
+      
+    </>
   );
 };
 

@@ -1,13 +1,19 @@
-
+.categorie h2{
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 700;
+  background-color: var(--light--color);
+  padding:20px;
+}
 .sidebar {
-  width: 15%;
+  width: 12%;
   position: fixed;
-  padding: 20px;
+  margin: 10px;
   border-right: 1px solid var(--primary--color);
 }
 
 .sidebar_title {
-  font-size: 22px;
+  font-size: 2rem;
   font-weight: normal;
   margin-bottom: 20px;
   z-index: 1;
@@ -16,17 +22,9 @@
   align-items: center;
 }
 
-.categories {
-  margin-top: 20px; /* Ajustez selon vos besoins */
-}
-
-.category {
-  margin-bottom: 10px; /* Ajustez selon vos besoins */
-}
-
 .category a {
   text-decoration: none;
-  color: #333; /* Couleur des liens */
+  color: #333; 
 }
 
 .category a:hover {

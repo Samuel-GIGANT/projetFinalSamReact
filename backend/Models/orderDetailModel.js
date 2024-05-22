@@ -16,5 +16,5 @@ const orderDetailSchema = new mongoose.Schema({
   }
 });
 
-const orderDetailModel = mongoose.model("orderDetail", orderDetailSchema);
+const orderDetailModel = mongoose.model("orderdetail", orderDetailSchema);
 module.exports = orderDetailModel;
